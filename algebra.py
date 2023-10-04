@@ -43,9 +43,12 @@ user_usd_min_recv = 3_500 # User min recv 3,500 USD
 user_price = user_usd_min_recv / user_eth_in
 
 # k is constant
+k = eth_reserve * usd_reserve
 eth_to_swap = math.sqrt(eth_reserve * usd_reserve * user_price)/user_price - eth_reserve
 
-usd_recv = get_amount_out(eth_to_swap, eth_reserve, usd_reserve)
-new_eth_reserve = eth_reserve + eth_to_swap
-new_usd_reserve = usd_reserve - usd_recv
-print(new_usd_reserve / new_eth_reserve, user_price)
+print(eth_to_swap)
+
+# usd_recv = get_amount_out(eth_to_swap, eth_reserve, usd_reserve)
+# new_eth_reserve = eth_reserve + eth_to_swap
+# new_usd_reserve = usd_reserve - usd_recv
+# user_usd_recv = get_amount_out(user_eth_in, new_eth_reserve, new_usd_reserve)
